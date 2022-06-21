@@ -42,14 +42,10 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat='')
-            ],[
-            InlineKeyboardButton('Help', callback_data='help'),
-            InlineKeyboardButton('•About•', callback_data='about')
+            InlineKeyboardButton('🔍 Search Inline', switch_inline_query_current_chat='')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await message.reply_photo(
-            photo=random.choice(PICS),
+        await message(
             caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode='html'
@@ -85,14 +81,10 @@ async def start(client, message):
         return
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
-            InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat='')
-            ],[
-            InlineKeyboardButton('Help', callback_data='help'),
-            InlineKeyboardButton('•About•', callback_data='about')
+            InlineKeyboardButton('🔍 Search Inline', switch_inline_query_current_chat='')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await message.reply_photo(
-            photo=random.choice(PICS),
+        await message(
             caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode='html'

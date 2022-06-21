@@ -364,7 +364,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     caption=f_caption,
                     protect_content=True if ident == "filep" else False 
                 )
-                await query.answer('ഇനി ജോയിൻ ആയ ഈ ബോട്ടിൽ @TGFilmRobot മതി. മൂവി ഫയൽ അവിടെ വന്നിട്ടുണ്ടാകും.Check PM of the this Bot. I have sent files in pm', show_alert=True)
+                await query.answer('ഇനി ജോയിൻ ആയ ഈ ബോട്ടിൽ @TGFilmRobot മതി. മൂവി ഫയൽ അവിടെ വന്നിട്ടുണ്ടാകും.\nCheck PM of the this Bot. I have sent files in pm', show_alert=True)
         except UserIsBlocked:
             await query.answer('Unblock the bot mahn !', show_alert=True)
         except PeerIdInvalid:
@@ -405,9 +405,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "start":
         buttons = [[
             InlineKeyboardButton('🔍 Search Inline', switch_inline_query_current_chat='')
-        ], [
-            InlineKeyboardButton('Help', callback_data='help'),
-            InlineKeyboardButton('•About•', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -703,7 +700,7 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        cap = f"ആദ്യം ഈ ബോട്ടിൽ പോയിട്ട് ജോയിൻ ആവുക. അതിനു ശേഷം ഇവിടെ മൂവി ക്ലിക്ക് ചെയ്യുക.ബോട്ട് 👉@TGFilmRobot👈. Here is what i found for your query👇👇👇👇 {search}"
+        cap = f"ആദ്യം ഈ ബോട്ടിൽ പോയിട്ട് ജോയിൻ ആവുക. അതിനു ശേഷം ഇവിടെ മൂവി ക്ലിക്ക് ചെയ്യുക.ബോട്ട് 👉@TGFilmRobot👈.\nHere is what i found for your query👇👇👇👇 {search}"
     if imdb and imdb.get('poster'):
         try:
             await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],

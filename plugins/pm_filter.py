@@ -703,7 +703,7 @@ async def auto_filter(client, msg, spoll=False):
         cap = f"<b>ആദ്യം ഈ ബോട്ടിൽ പോയിട്ട് ജോയിൻ ആവുക. അതിനു ശേഷം ഇവിടെ മൂവി ക്ലിക്ക് ചെയ്യുക.\nബോട്ട് 👉@TGFilmRobot👈.\nHere is what i found for your query👇👇👇👇\n #{search}</b>"
     if imdb and imdb.get('poster'):
         try:
-            a=await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+            a=await message.reply_text(text.imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
             await asyncio.sleep(DL_TIME)
             await a.delete()
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):

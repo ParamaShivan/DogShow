@@ -709,7 +709,7 @@ async def auto_filter(client, msg, spoll=False):
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             b=await message.reply_text(caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
             await asyncio.sleep(DL_TIME)
-            await b.delete()
+            await c.delete()
         except Exception as e:
             logger.exception(e)
             c=await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))

@@ -709,7 +709,7 @@ async def auto_filter(client, msg, spoll=False):
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
-            b=await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+            b=await message.reply_text(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
             await asyncio.sleep(DL_TIME)
             await b.delete()
         except Exception as e:
